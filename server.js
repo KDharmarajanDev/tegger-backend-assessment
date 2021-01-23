@@ -7,12 +7,23 @@ const port = 8080;
 app.get('/api/:uid', (req, outer_res) => {
     let user_id = req.params.uid;
     https.get(`https://stg-api.tegger.io/api/v1/interactions/history/${user_id}`, (res) => {
-        let data = "";
-        res.on("data", new_data => {
+        let data = '';
+        res.on('data', new_data => {
             data += new_data;
         });
         res.on("end", () => {
             let json_data = JSON.parse(data);
+            let user_tokens = sum_tokens(json_data);
+            let props_per_tgr = 0.0375;
+            https.get('https://api.coincap.io/v2/assets?ids=bitcoin,ethereum', (res) => {
+                let bitcoin_value = '';
+                res.on('data', new_bitcoin_data => {
+                    bitcoin_value += new_bitcoin_data;
+                });
+                res.on('end', () => {
+                    let json_bitcoin_value = JSON.parse(bitcoin_value);
+                });
+            })
         });
     });
 });
