@@ -1,0 +1,21 @@
+{
+  "name": "tegger-backend-assessment",
+  "version": "1.0.0",
+  "description": "Tegger Backend Assessment",
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KDharmarajanDev/tegger-backend-assessment.git"
+  },
+  "author": "Karthik Dharmarajan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KDharmarajanDev/tegger-backend-assessment/issues"
+  },
+  "homepage": "https://github.com/KDharmarajanDev/tegger-backend-assessment#readme"
+}
