@@ -17,17 +17,18 @@ app.get('/api/:uid', (req, outer_res) => {
             let props_per_tgr = 0.0375;
             let props_usd = 0.08014;
             https.get('https://api.coincap.io/v2/assets?ids=bitcoin,ethereum', (res) => {
-                let bitcoin_value = '';
-                res.on('data', new_bitcoin_data => {
-                    bitcoin_value += new_bitcoin_data;
+                let crypto_value = '';
+                res.on('data', new_crypto_data => {
+                    crypto_value += new_crypto_data;
                 });
                 res.on('end', () => {
-                    let json_bitcoin_value = JSON.parse(bitcoin_value);
-
+                    let json_crypto_value = JSON.parse(crypto_value);
+                    outer_res.json(convert_tgr_to_crypto(user_tokens, props_usd, props_per_tgr, json_crypto_value));
                 });
             })
         });
     });
+    outer_res.status(500);
 });
 
 // This function sums tokens from the data
