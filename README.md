@@ -20,7 +20,7 @@ Success! The project is successfully installed!
 
 2. The backend code is now up and running. Visit 'localhost/api/user' where 'user' is replaced with the user id that needs to have their tokens converted into crypto currency.
 
-For more info about the API, visit https://documenter.getpostman.com/view/14310210/TW6tLVfX.
+For more info about the API, visit https://documenter.getpostman.com/view/14310210/TW6tLVfX. An example of a POSTMAN Collection is present in this repository.
 ### For Testing
 
 1. Run `$ npm test` in the command line.

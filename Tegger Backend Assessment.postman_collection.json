@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "1f520f81-de9c-4049-b15d-9cb2ad0e1597",
+		"name": "Tegger Backend Assessment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Converts user's Tegger tokens to various cryptocurrencies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "ccaad09f-b2b7-4e37-9a24-5266aebd6082",
+							"type": "string",
+							"description": "(Required) ID of the user"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Details the values of the cryptocurrencies",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "ccaad09f-b2b7-4e37-9a24-5266aebd6082",
+									"description": "User ID"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"Props\":2.146692707925462,\n    \"Bitcoin\":0.000005358146427889158,\n    \"Ethereum\":0.00013723745119438853\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://tegger-backend-assessment.herokuapp.com"
+		}
+	]
+}
