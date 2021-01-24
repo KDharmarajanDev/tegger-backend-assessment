@@ -1,7 +1,7 @@
 const express = require('express');
 const https = require('https');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 80;
 
 // This is the main API endpoint for getting crypto values from tokens
 app.get('/api/:uid', (req, outer_res) => {
