@@ -15,6 +15,7 @@ app.get('/api/:uid', (req, outer_res) => {
             let json_data = JSON.parse(data);
             let user_tokens = sum_tokens(json_data);
             let props_per_tgr = 0.0375;
+            let props_usd = 0.08014;
             https.get('https://api.coincap.io/v2/assets?ids=bitcoin,ethereum', (res) => {
                 let bitcoin_value = '';
                 res.on('data', new_bitcoin_data => {
@@ -22,6 +23,7 @@ app.get('/api/:uid', (req, outer_res) => {
                 });
                 res.on('end', () => {
                     let json_bitcoin_value = JSON.parse(bitcoin_value);
+
                 });
             })
         });
@@ -40,6 +42,23 @@ function sum_tokens(user_info) {
         }
     }
     return total;
+}
+
+// This function converts TGR tokens to various cryptocurrencies based on reference crypto (TGR)
+function convert_tgr_to_crypto(tgr_amount, reference_crypto_to_usd, reference_crypto_to_tgr, bitcoin_values) {
+    let crypto_values = {};
+    if ('data' in bitcoin_values) {
+        let data = bitcoin_values['data'];
+        let usd = tgr_amount * reference_crypto_to_tgr * reference_crypto_to_usd;
+        crypto_values['Props'] = usd / reference_crypto_to_usd;
+        for (let i = 0; i < data.length; i++) {
+            let crypto = data[i];
+            if ('name' in crypto && 'priceUsd' in crypto) {
+                crypto_values[crypto['name']] = usd / parseFloat(crypto['priceUsd']);
+            }
+        }
+    }
+    return crypto_values;
 }
 
 app.listen(port, () => {
