@@ -65,3 +65,5 @@ function convert_tgr_to_crypto(tgr_amount, reference_crypto_to_usd, reference_cr
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
+
+exports.sum_tokens = sum_tokens;

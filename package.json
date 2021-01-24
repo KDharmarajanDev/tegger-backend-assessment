@@ -5,8 +5,14 @@
   "dependencies": {
     "express": "4.17.1"
   },
+  "devDependencies": {
+    "mocha": "^8.2.1",
+    "chai": "^4.2.0",
+    "nyc": "15.1.0"
+  },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "nyc mocha --timeout=300"
   },
   "repository": {
     "type": "git",
