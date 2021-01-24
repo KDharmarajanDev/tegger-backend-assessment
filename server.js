@@ -67,3 +67,4 @@ app.listen(port, () => {
 });
 
 exports.sum_tokens = sum_tokens;
+exports.convert_tgr_to_crypto = convert_tgr_to_crypto;
