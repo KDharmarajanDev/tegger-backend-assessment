@@ -28,7 +28,6 @@ app.get('/api/:uid', (req, outer_res) => {
             })
         });
     });
-    outer_res.status(500);
 });
 
 // This function sums tokens from the data
@@ -68,3 +67,4 @@ app.listen(port, () => {
 
 exports.sum_tokens = sum_tokens;
 exports.convert_tgr_to_crypto = convert_tgr_to_crypto;
+exports.app = app;
